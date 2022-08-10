@@ -36,3 +36,6 @@ lerna-debug.log*
 
 # Mongo File
 /mongo
+
+# Variables de entorno
+.env
