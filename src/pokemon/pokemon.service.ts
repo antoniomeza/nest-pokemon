@@ -37,20 +37,17 @@ export class PokemonService {
 
     // NO
     if ( !isNaN( +id )) {
-      pokemon = await this.pokemonModel.findOne( { no: id} )
+      pokemon = await this.pokemonModel.findOne( { no: id } )
     }
 
     // ID
     if ( !pokemon && isValidObjectId( id ) ) {
       pokemon = await this.pokemonModel.findById( id )
-    } else {
-      // Name
-      pokemon = await this.pokemonModel.findOne({ name: id.toLocaleLowerCase().trim() })
     }
 
-    // if ( !pokemon ) {
-    //   pokemon = await this.pokemonModel.findOne({ name: id.toLocaleLowerCase().trim() })
-    // }
+    if ( !pokemon ) {
+      pokemon = await this.pokemonModel.findOne({ name: id.toLocaleLowerCase().trim() })
+    }
 
     if ( !pokemon ) throw new NotFoundException(`Pokemon with id, name or no "${ id }" not found` )
 
