@@ -19,9 +19,14 @@ npm i -g @nestjs/cli
 4. Levantar la base de datos
 ```
 docker-compose up -d
+
+```
+5. Iniciar la aplicación
+```
+yarn start:dev
 ```
 
-5. Reconstruir la base de datos con la semilla en desarrollo
+6. Reconstruir la base de datos con la semilla en desarrollo
 ```
 localhost:3000/api/v2/seed/
 ```
